@@ -1,0 +1,31 @@
+sources:
+  - name: demo_src
+    database: dwh_flights
+    schema: demo_src
+    tables:    
+      - name: aircrafts
+      - name: aircrafts_data
+      - name: airports
+      - name: airports_data
+      - name: boarding_passes
+      - name: bookings
+      - name: flights
+      - name: flights_v
+      - name: routes
+      - name: seats
+      - name: ticket_flights
+      - name: tickets
+
+
+
+
+
+
+
+
+
+
+
+
+
+
