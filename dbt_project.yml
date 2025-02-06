@@ -1,5 +1,4 @@
 name: 'dbt_course_practice'
-version: '1.0.0'
 
 # Этот параметр указывает, какой профиль dbt использует для этого проекта.
 profile: 'dbt_course_practice'  # имя профиля должно совпадать с файлом profiles.yml
