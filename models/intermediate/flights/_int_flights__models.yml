@@ -1,0 +1,110 @@
+models:
+  - name: fct_bookings
+    description: Факты бронирований
+    docs:
+      show: true
+      node_color: "#5b32cd"
+    latest_version: 1
+    versions:       
+      - v: 1
+
+    config:
+      contract: {enforced: true}
+    meta: 
+      owner: "khomyakovaekat@gmail.com"
+      contact_phone: "8-982-465-26-07"
+      contach_tg: "ekaterinakhomyakova"
+      status: "in_dev"
+
+    columns:
+      - name: book_ref
+        data_type: varchar(6)
+        constraints:
+          - type: not_null
+      - name: book_date
+        data_type: timestamptz
+      - name: total_amount
+        data_type: numeric(10, 2)
+        constraints:
+          - type: check
+            expressions: "total_amount > 0"
+        tests:
+          - not_null
+        mata:
+          owner: "dmkfr"
+        quote: true
+
+  - name: fct_flights_scheduled
+    description: Рейсы
+    config:
+      contract: {enforced: true}
+    meta: 
+      owner: "khomyakovaekat@gmail.com"    
+    columns:
+      - name: flight_id
+        data_type: integer
+        constraints:
+          - type: unique
+      - name: flight_no
+        data_type: varchar(6)
+      - name: scheduled_departure
+        data_type: timestamptz
+      - name: scheduled_arrival
+        data_type: timestamptz
+      - name: departure_airport
+        data_type: varchar(3)
+      - name: arrival_airport
+        data_type: varchar(3)
+      - name: status
+        data_type: varchar(20)
+      - name: aircraft_code
+        data_type: varchar(3)
+      - name: actual_departure
+        data_type: timestamptz
+      - name: actual_arrival
+        data_type: timestamptz      
+
+  - name: fct_ticket_flights
+    description: Модель данных о перелетах
+    docs:
+      show: true
+      node_color: "#3cec68"
+    latest_version: 1
+    versions:       
+      - v: 1
+
+    config:
+      contract: {enforced: true}
+    meta: 
+      owner: "khomyakovaekat@gmail.com"
+      contact_phone: "8-982-465-26-07"
+      contach_tg: "ekaterinakhomyakova"
+      status: "in_dev"
+
+    columns:
+      - name: ticket_no
+        data_type: varchar(13)
+        constraints:
+          - type: not_null
+      - name: flight_id
+        data_type: integer
+        constraints:
+          - type: foreign_key
+            to: ref('fct_flights_scheduled')
+            to_columns: [flight_id]
+      - name: fare_conditions
+        data_type: varchar(10)
+      - name: amount
+        data_type: numeric(10, 2)
+
+        constraints:
+          - type: check
+            expressions: "total_amount > 0"
+        tests:
+          - not_null
+        mata:
+          owner: "dmkfr"
+        quote: true
+
+
+
