@@ -113,6 +113,8 @@ sources:
             description: Фактическое время вылета
           - name: actual_arrival
             description: Фактическое время прилёта
+          - name: flights_uptdt
+            description: Дата обновления записи
       - name: flights_v
         description: Полеты
         columns:
