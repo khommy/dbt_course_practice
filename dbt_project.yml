@@ -1,7 +1,11 @@
 name: 'dbt_course_practice'
+version: '1.6'
 
 # Этот параметр указывает, какой профиль dbt использует для этого проекта.
 profile: 'dbt_course_practice'  # имя профиля должно совпадать с файлом profiles.yml
+
+# Другие параметры
+config-version: 2
 
 # Эти конфигурации указывают, где dbt должен искать разные типы файлов.
 model-paths: ["models"]
@@ -21,4 +25,11 @@ clean-targets:         # директории, которые будут уда�
 models:
   dbt_course_practice:                     
     +materialized: incremental             
-    +on_schema_change: append_new_columns    
+    +on_schema_change: append_new_columns
+
+# Обязательно добавьте пустую строку в конце файла
+
+seeds:
+  dbt_course_practice:
+    shcema: seeds
+

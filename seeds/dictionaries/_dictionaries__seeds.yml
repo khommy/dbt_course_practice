@@ -1,0 +1,15 @@
+seeds:
+  - name: passenger_out
+    description: Справочник пассажиров
+    config:
+      column_types:
+        passenger_id: text
+        passenger_name: varchar(100)
+      delimiter: ";"
+    colomns:
+      - name: passenger_id
+        tests: 
+          - not_null
+          - unique
+      
+      
