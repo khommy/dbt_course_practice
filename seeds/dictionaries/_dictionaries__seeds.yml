@@ -5,11 +5,10 @@ seeds:
       column_types:
         passenger_id: text
         passenger_name: varchar(100)
+        updated_at: timestamp
       delimiter: ";"
     colomns:
       - name: passenger_id
         tests: 
           - not_null
           - unique
-      
-      
