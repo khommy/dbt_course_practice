@@ -7,20 +7,15 @@ models:
     latest_version: 1
     versions:       
       - v: 1
-
     config:
       contract: {enforced: true}
-    meta: 
-      owner: "khomyakovaekat@gmail.com"
-      contact_phone: "8-982-465-26-07"
-      contach_tg: "ekaterinakhomyakova"
-      status: "in_dev"
-
+    meta: {owner: "yml_file_owner@gmaile.com",contact_phone: "8-982-465-26-07",contach_tg: "ekaterinakhomyakova",status: "in_dev"}
     columns:
       - name: book_ref
-        data_type: varchar(6)
+        data_type: text
         constraints:
           - type: not_null
+        tests: [not_null, unique]
       - name: book_date
         data_type: timestamptz
       - name: total_amount

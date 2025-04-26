@@ -26,10 +26,21 @@ models:
   dbt_course_practice:                     
     +materialized: incremental             
     +on_schema_change: append_new_columns
+    +mata:
+      owner: "dbt_project_yml@gmail.com"
+      year_created: 2025
+    
+    staging:
+      flights:
+        +tags: 
+          - "stage"
 
-# Обязательно добавьте пустую строку в конце файла
+    intermediate:
+      +tags:
+        - "intermediate"
 
 seeds:
   dbt_course_practice:
     shcema: seeds
+
 

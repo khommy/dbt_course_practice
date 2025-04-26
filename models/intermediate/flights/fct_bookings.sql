@@ -1,16 +1,16 @@
 {{
     config(
-        materialized = 'incremental',
-        incremental_strategy = 'merge',
-        unique_key = ['book_ref'],
+        materialized = 'table',       
         tags = ['bookings'],
-        merge_update_columns = ['total_amount']
-        )
+        meta = {
+            'owner':'sql_file_owner@gmail.com'
+        }
+    )
 
 }}
 
 select
-    book_ref
+    book_ref::text
     , book_date
     , total_amount
 from {{ ref('stg_flights__bookings') }}
