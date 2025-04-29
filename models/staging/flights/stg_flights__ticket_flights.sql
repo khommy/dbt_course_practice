@@ -11,3 +11,6 @@ select
     , fare_conditions
     , amount
 from {{ source('demo_src', 'ticket_flights') }}
+{%- if target.name == 'dev'%}
+limit 50000
+{%- endif %}
