@@ -23,4 +23,3 @@ WHERE
 GROUP BY TO_CHAR(scheduled_departure::timestamp, 'DD-MM-YYYY')
 ORDER by  TO_CHAR(scheduled_departure::timestamp, 'DD-MM-YYYY')
 
-

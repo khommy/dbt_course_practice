@@ -15,7 +15,7 @@ WITH max_download AS (
 
 SELECT 
    flight_id,
-   flight_no,
+   flight_no::varchar(10) as flight_no,
    scheduled_departure,
    scheduled_arrival,
    departure_airport,

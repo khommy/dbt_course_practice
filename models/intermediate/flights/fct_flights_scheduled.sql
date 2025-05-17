@@ -16,3 +16,6 @@ select
    , actual_departure
    , actual_arrival
 from {{ ref('stg_flights__flights') }}
+
+
+
